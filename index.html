@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="subtitle crawler osd">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>OSDTitles Live</title>
+        <link rel="stylesheet" href="css/normalizr.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="author" href="humans.txt">
+        <script type="text/javascript" src="js/ko.js"></script>
+        <script type="text/javascript" src="js/jq.js"></script>
+        <script type="text/javascript" src="js/jqui.js"></script>
+        <script type="text/javascript" src="js/us.js"></script>
+    </head>
+    <body>
+        <div class="inputArea">
+            <input data-bind="value: inputValue, valueUpdate: 'afterkeydown', ko_autocomplete: {source: autoCompleteWords}" placeholder=" insert query . . ." type="search" >
+        </div>
+        <div class="showArea">
+            <div class="showAll">
+                <ul data-bind="template: {name: 'allBeers', foreach: beers}">
+
+                    <script type="text/javascript" id="allBeers">
+                       <li>
+                        <strong data-bind="text: name"></strong>
+                        <span data-bind="text: brewery"></span>
+                        <span data-bind="text: style"></span>
+                       </li> 
+                    </script>
+
+                </ul>
+            </div>
+            <div class="autocompleteCont" ></div>
+            <div class="showTable" data-bind="css: {hide: vm.res().length < 1} ">
+                <ul data-bind="template: {name:'beer', foreach: res}"></ul>
+
+                <script type="text/html" id="beer">
+                  <li>
+                    <strong data-bind="text: name"></strong> –
+                    <span data-bind="text: brewery"></span> –
+                    <span data-bind="text: style"></span>
+                  </li>
+                </script>
+            </div>
+        </div>
+        <script src="js/main.js" type="text/javascript"></script>
+    </body>
+</html> 
