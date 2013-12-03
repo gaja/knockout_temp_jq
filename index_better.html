@@ -12,10 +12,12 @@
         <script type="text/javascript" src="js/jq.js"></script>
         <script type="text/javascript" src="js/jqui.js"></script>
         <script type="text/javascript" src="js/us.js"></script>
+        <script src="http://yui.yahooapis.com/3.14.0/build/yui/yui-min.js"></script>
     </head>
     <body>
-        <div class="inputArea">
-            <input data-bind="value: inputValue, valueUpdate: 'afterkeydown'" placeholder=" insert query . . ." type="search" >
+        <div class="inputArea" class="yui3-skin-sam">
+            <input id="ac-input" data-bind="value: inputValue, valueUpdate: 'afterkeydown'" placeholder=" insert query . . ." type="search" >
+            <script src="js/yui-ac.js"> </script>
         </div>
         <div class="showArea">
             <div class="showAll">
@@ -39,7 +41,7 @@
                   <li>
                     <strong data-bind="text: name"></strong> –
                     <span data-bind="text: brewery"></span> –
-                    <span data-bind="text: style"></span>
+                     <span data-bind="text: style"></span>
                   </li>
                 </script>
                 <button data-bind="click: resetList, enable: vm.res().length > 0" >Reset list</button>
